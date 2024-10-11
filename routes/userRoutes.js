@@ -8,6 +8,6 @@ const {
     getData,
 } = require('../controllers/userController');
 
-router.get('/getdata/:limit', getData);
+router.get('/get/:limit', getData);
 
 module.exports = router;
