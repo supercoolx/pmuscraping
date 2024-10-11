@@ -18,7 +18,7 @@ const getAllData = async (req, res) => {
 
 	do {
 		let variables = {
-			sportId: 0,
+			sportId: 70,
 			eventSize: 20,
 			marketTypes: [5, 6]
 		};
@@ -191,19 +191,12 @@ const getAllData = async (req, res) => {
 
 const getDataByEventId = async (req, res) => {
 	const { eventid } = req.params; // Limit in hours
+	const marketTypes = Array.from({ length: 1000 }, (_, index) => index + 1);
 	const data = {
 		operationName: "SportsEventByEventId",
 		variables: {
 			eventId: eventid,
-			marketTypes: [
-				379, 889, 686, 694, 702, 678, 504, 357, 369, 367,
-				364, 362, 24, 178, 181, 180, 176, 189, 820, 185,
-				70, 465, 891, 892, 458, 455, 454, 452, 384, 383,
-				382, 381, 380, 378, 377, 376, 375, 374, 437, 890,
-				911, 817, 432, 174, 39, 69, 182, 183, 184, 324,
-				179, 501, 63, 20, 8, 7, 6, 887, 453, 459, 460,
-				461, 464, 345, 344
-			],
+			marketTypes: marketTypes,
 			marketSize: 1000
 		},
 		query: `query SportsEventByEventId($eventId: Long!, $marketTypes: [Int!]!, $marketSize: Int!) {
