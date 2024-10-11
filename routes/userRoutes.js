@@ -5,9 +5,11 @@ const {
 } = require('../middleware/authentication');
 
 const {
-    getData,
+    getAllData,
+    getDataByEventId,
 } = require('../controllers/userController');
 
-router.get('/get/:limit', getData);
+router.get('/get/all/:limit', getAllData);
+router.get('/get/event/:eventid', getDataByEventId);
 
 module.exports = router;
