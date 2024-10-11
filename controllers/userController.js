@@ -162,8 +162,15 @@ const getAllData = async (req, res) => {
 					market // Attach the market (or null if not found)
 				};
 			});
-			result.push(...combined);
-			console.log("result=", result.length, ", ", combined.length)
+
+			// Remove fields
+			const cleanedData = combined.map(item => {
+				const { participants, competitionGroup, ...rest } = item;
+				return rest;
+			});
+			
+			result.push(...cleanedData);
+			console.log("result=", result.length, ", ", cleanedData.length)
 
 			// Update nextParams based on the response
 			if (data.nextParams) {
