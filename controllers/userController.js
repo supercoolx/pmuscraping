@@ -10,6 +10,7 @@ const getData = async (req, res) => {
 	const { limit } = req.params; // Limit in hours
 	const limitTime = Date.now() + limit * 60 * 60 * 1000; // Convert hours to milliseconds
 	let nextParams = null;
+	console.log("scrape start!");
 
 	let result = [];
 
